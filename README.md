@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
@@ -61,4 +60,53 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 =======
 #  GRH (Gestion des Ressources Humaines) 
 **Ceci est un projet de gestion de ressources humaines réalisé avec laravel 12**
->>>>>>> 04fe4a4d87db0c833eb842a8c1ce988b6ab41b86
+## Description
+
+Cette application permet de gérer les employés d'une entreprise en centralisant leurs informations personnelles, professionnelles et administratives.
+
+## Fonctionnalités
+
+### 👨‍💼 Gestion des employés
+
+* Ajouter un employé.
+* Modifier un employé.
+* Supprimer un employé.
+* Consulter la liste des employés.
+
+### 📋 Profils des employés
+
+Chaque employé possède une fiche contenant :
+
+* Nom
+* Prénom
+* Email
+* Téléphone
+* Poste
+* Département
+* Date d'embauche
+* Salaire
+
+### 🏢 Gestion des départements
+
+Les employés sont rattachés à un département :
+
+* Informatique
+* Comptabilité
+* Ressources Humaines
+* Marketing
+
+### 📷 Gestion des fichiers
+
+* Ajout d'une photo de profil.
+* Téléversement de documents (contrat de travail, diplômes, etc.).
+* Consultation des documents enregistrés.
+
+## Technologies utilisées
+
+* Laravel 12
+* PHP 8
+* MySQL
+* HTML / CSS
+* phpMyAdmin
+
+
