@@ -60,3 +60,65 @@ Chaque employé contient :
 - MySQL
 - HTML / CSS
 - phpMyAdmin
+
+### 📅 Gestion des congés
+- Création d’une demande de congé
+- Validation / refus des congés
+- Calcul automatique des jours de congé
+- Déduction automatique du solde de congés
+- Suivi du statut :
+  - En attente
+  - Approuvé
+  - Refusé
+
+---
+
+### 🚫 Gestion des absences
+- Enregistrement des absences des employés
+- Types d’absences :
+  - Maladie
+  - Absence
+  - Retard
+- Historique des absences
+- Lien avec les employés
+
+---
+
+## 🧠 Logique métier
+
+- Chaque employé possède un **solde de congés**
+- Lorsqu’un congé est **approuvé**, le système :
+  - Calcule les jours (`date_fin - date_debut + 1`)
+  - Déduit automatiquement du solde de congés
+- Les absences sont enregistrées indépendamment des congés
+
+---
+
+## 🛠️ Technologies utilisées
+
+- Laravel 12
+- PHP 8+
+- MySQL
+- Blade (views)
+- Eloquent ORM
+
+---
+
+## 🗂️ Structure du module
+
+- `Employe` → gestion des employés et solde de congés
+- `Conge` → gestion des demandes de congés
+- `Absence` → gestion des absences
+- `CongeController` → validation et calcul du solde
+- `AbsenceController` → enregistrement des absences
+
+---
+
+
+## Technologies utilisées
+
+* Laravel 12
+* PHP 8
+* MySQL
+* HTML / CSS
+* phpMyAdmin
