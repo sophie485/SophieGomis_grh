@@ -19,6 +19,7 @@ class Employe extends Model
         'salaire',
         'photo',
         'documents',
+        'solde_conges'
     ];
 
     public function departement()
@@ -30,4 +31,8 @@ class Employe extends Model
     {
         return $this->hasMany(HistoriquePoste::class);
     }
+    public function conges()
+{
+    return $this->hasMany(Conge::class);
+}
 }
