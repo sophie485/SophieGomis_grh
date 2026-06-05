@@ -1,124 +1,269 @@
-<p align="center">
-  <a href="https://laravel.com" target="_blank">
-    <img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo">
-  </a>
-</p>
+# GRH - Gestion des Ressources Humaines
 
-<p align="center">
-  <a href="https://github.com/laravel/framework/actions">
-    <img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status">
-  </a>
-  <a href="https://packagist.org/packages/laravel/framework">
-    <img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads">
-  </a>
-  <a href="https://packagist.org/packages/laravel/framework">
-    <img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version">
-  </a>
-  <a href="https://packagist.org/packages/laravel/framework">
-    <img src="https://img.shields.io/packagist/l/laravel/framework" alt="License">
-  </a>
-</p>
+## Description
 
-# GRH (Gestion des Ressources Humaines)
+Application de Gestion des Ressources Humaines développée avec Laravel 12.
 
-## 📌 Description
-Application de gestion des ressources humaines développée avec Laravel 12.  
-Elle permet de centraliser et gérer les employés d’une entreprise.
-
-## 🚀 Fonctionnalités
-
-### 👨‍💼 Gestion des employés
-- Ajouter un employé
-- Modifier un employé
-- Supprimer un employé
-- Lister les employés
-
-### 📋 Informations employé
-Chaque employé contient :
-- Nom
-- Prénom
-- Email
-- Téléphone
-- Poste
-- Département
-- Date d’embauche
-- Salaire
-
-### 🏢 Départements
-- Informatique
-- Comptabilité
-- Ressources Humaines
-- Marketing
-
-### 📷 Gestion des fichiers
-- Photo de profil
-- Documents (contrat, diplômes, etc.)
-
-## 🛠️ Technologies
-- Laravel 12
-- PHP 8
-- MySQL
-- HTML / CSS
-- phpMyAdmin
-
-### 📅 Gestion des congés
-- Création d’une demande de congé
-- Validation / refus des congés
-- Calcul automatique des jours de congé
-- Déduction automatique du solde de congés
-- Suivi du statut :
-  - En attente
-  - Approuvé
-  - Refusé
+Cette application permet de centraliser les informations des employés, gérer les départements, les congés et les contrats au sein d'une entreprise.
 
 ---
 
-### 🚫 Gestion des absences
-- Enregistrement des absences des employés
-- Types d’absences :
-  - Maladie
-  - Absence
-  - Retard
-- Historique des absences
-- Lien avec les employés
+## Fonctionnalités
+
+### Gestion des employés
+
+* Ajouter un employé
+* Modifier un employé
+* Supprimer un employé
+* Consulter la liste des employés
+* Gestion des informations personnelles
+* Gestion du solde de congés
+
+### Informations employé
+
+Chaque employé possède :
+
+* Nom
+* Prénom
+* Email
+* Téléphone
+* Poste
+* Département
+* Date d'embauche
+* Salaire
+* Solde de congés
+
+### Gestion des départements
+
+Départements disponibles :
+
+* Informatique
+* Comptabilité
+* Ressources Humaines
+* Marketing
+
+Fonctionnalités :
+
+* Ajouter un département
+* Modifier un département
+* Supprimer un département
+* Consulter la liste des départements
 
 ---
 
-## 🧠 Logique métier
+## Gestion des documents
 
-- Chaque employé possède un **solde de congés**
-- Lorsqu’un congé est **approuvé**, le système :
-  - Calcule les jours (`date_fin - date_debut + 1`)
-  - Déduit automatiquement du solde de congés
-- Les absences sont enregistrées indépendamment des congés
-
----
-
-## 🛠️ Technologies utilisées
-
-- Laravel 12
-- PHP 8+
-- MySQL
-- Blade (views)
-- Eloquent ORM
+* Photo de profil de l'employé
+* Documents administratifs
+* Diplômes
+* Contrats
 
 ---
 
-## 🗂️ Structure du module
+## Gestion des congés
 
-- `Employe` → gestion des employés et solde de congés
-- `Conge` → gestion des demandes de congés
-- `Absence` → gestion des absences
-- `CongeController` → validation et calcul du solde
-- `AbsenceController` → enregistrement des absences
+Fonctionnalités :
+
+* Création d'une demande de congé
+* Validation d'une demande de congé
+* Refus d'une demande de congé
+* Suivi du statut du congé
+
+Statuts disponibles :
+
+* En attente
+* Approuvé
+* Refusé
+
+### Calcul automatique
+
+Lorsqu'un congé est approuvé :
+
+* Le nombre de jours est calculé automatiquement
+* Formule utilisée :
+
+(date_fin - date_debut) + 1
+
+* Le solde de congés de l'employé est automatiquement mis à jour
 
 ---
 
+## Gestion des contrats
+
+### Types de contrats
+
+* CDI
+* CDD
+* Stage
+* Freelance
+
+### Fonctionnalités
+
+* Création d'un contrat
+* Modification d'un contrat
+* Suppression d'un contrat
+* Consultation des contrats
+
+### Alertes
+
+* Détection automatique des contrats proches de leur date d'expiration
+* Affichage des contrats arrivant à échéance dans les 30 prochains jours
+
+---
+
+## Logique métier
+
+### Solde de congés
+
+Chaque employé dispose d'un solde de congés.
+
+Lorsqu'un congé est approuvé :
+
+1. Calcul du nombre de jours de congé
+2. Déduction automatique du nombre de jours
+3. Mise à jour du solde restant
+
+### Contrats
+
+* Un employé peut posséder plusieurs contrats
+* Les contrats sont liés à l'employé
+* Les contrats peuvent être suivis jusqu'à leur expiration
+
+---
+
+## Structure du projet
+
+### Modèles
+
+* Employe
+* Departement
+* Conge
+* Contrat
+
+### Contrôleurs
+
+* EmployeController
+* DepartementController
+* CongeController
+* ContratController
+
+### Relations
+
+* Un département possède plusieurs employés
+* Un employé appartient à un département
+* Un employé possède plusieurs congés
+* Un employé possède plusieurs contrats
+
+---
+
+## Base de données
+
+### Table employes
+
+* id
+* nom
+* prenom
+* email
+* telephone
+* poste
+* departement_id
+* date_embauche
+* salaire
+* solde_conges
+
+### Table departements
+
+* id
+* nom
+
+### Table conges
+
+* id
+* employe_id
+* type
+* date_debut
+* date_fin
+* motif
+* statut
+
+### Table contrats
+
+* id
+* employe_id
+* type
+* date_debut
+* date_fin
+* salaire
+* statut
+
+---
 
 ## Technologies utilisées
 
 * Laravel 12
-* PHP 8
+* PHP 8+
 * MySQL
-* HTML / CSS
+* Eloquent ORM
+* Blade
+* HTML5
+* CSS3
 * phpMyAdmin
+
+---
+
+## Installation
+
+Cloner le projet :
+
+```bash
+git clone https://github.com/VOTRE-USERNAME/VOTRE-PROJET.git
+```
+
+Accéder au dossier :
+
+```bash
+cd laravel
+```
+
+Installer les dépendances :
+
+```bash
+composer install
+```
+
+Créer le fichier d'environnement :
+
+```bash
+cp .env.example .env
+```
+
+Générer la clé de l'application :
+
+```bash
+php artisan key:generate
+```
+
+Configurer la base de données dans le fichier `.env`.
+
+Exécuter les migrations :
+
+```bash
+php artisan migrate
+```
+
+Lancer le serveur :
+
+```bash
+php artisan serve
+```
+
+---
+
+## Auteur
+
+**Sophie GOMIS**
+
+Projet réalisé dans le cadre d'un système de Gestion des Ressources Humaines avec Laravel 12.
+
+---
+
