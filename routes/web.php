@@ -21,4 +21,7 @@ Route::put('/conges/{conge}/approuver', [CongeController::class, 'approuver'])
 Route::put('/conges/{conge}/refuser', [CongeController::class, 'refuser'])
     ->name('conges.refuser');
 
-Route::resource('absences', AbsenceController::class);
+
+use App\Http\Controllers\ContratController;
+
+Route::resource('contrats', ContratController::class);

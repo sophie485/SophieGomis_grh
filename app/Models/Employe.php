@@ -32,7 +32,11 @@ class Employe extends Model
         return $this->hasMany(HistoriquePoste::class);
     }
     public function conges()
-{
-    return $this->hasMany(Conge::class);
-}
+    {
+        return $this->hasMany(Conge::class);
+    }
+    public function contrats()
+    {
+        return $this->hasMany(Contrat::class);
+    }
 }
